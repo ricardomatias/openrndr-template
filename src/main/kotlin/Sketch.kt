@@ -17,18 +17,12 @@ const val h2 = h / 2.0
 
 val origin = Vector2(200.0, 0.0)
 
-val params = object : GuiParams {
-    override var value = 1.0
-}
 
 class CompositorSketch : Program() {
     override fun setup() {
-//        val gui = GUI(this, params)
-
-//        extend(gui.panel)
-//        extend(FPS()) {
-//            corner = FPS.Corner.BOTTOM_LEFT
-//        }
+        extend(FPS()) {
+            corner = FPS.Corner.BOTTOM_LEFT
+        }
         extend(olive)
     }
 }
