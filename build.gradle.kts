@@ -2,22 +2,22 @@ import org.gradle.internal.os.OperatingSystem
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "org.openrndr.template"
-version = "0.3.8"
+version = "0.3.9"
 val applicationMainClass = "TemplateProgramKt"
 
-val openrndrUseSnapshot = true
-val openrndrVersion = if (openrndrUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.37"
+val openrndrUseSnapshot = false
+val openrndrVersion = if (openrndrUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.39-rc.2"
 
-val panelUseSnapshot = true
-val panelVersion = if (panelUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.19"
+val panelUseSnapshot = false
+val panelVersion = if (panelUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.21-rc.1"
 
-val orxUseSnapshot = true
-val orxVersion = if (orxUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.44"
+val orxUseSnapshot = false
+val orxVersion = if (orxUseSnapshot) "0.4.0-SNAPSHOT" else "0.3.47-rc.3"
 
 // supported features are: orx-camera, orx-compositor,orx-easing, orx-filter-extension,orx-file-watcher, orx-fx
 // orx-integral-image, orx-interval-tree, orx-jumpflood, orx-kinect-v1, orx-kdtree, orx-mesh-generators,orx-midi, orx-no-clear,
 // orx-noise, orx-obj, orx-olive, orx-osc, orx-palette, orx-runway
-val orxFeatures = setOf("orx-noise", "orx-fx", "orx-palette", "orx-olive", "orx-compositor")
+val orxFeatures = setOf("orx-noise", "orx-fx", "orx-palette", "orx-olive", "orx-compositor", "orx-gui")
 
 // supported features are: video, panel
 val openrndrFeatures = setOf("video", "panel")
@@ -47,9 +47,7 @@ plugins {
 
 repositories {
     mavenCentral()
-    if (openrndrUseSnapshot || orxUseSnapshot || panelUseSnapshot) {
-        mavenLocal()
-    }
+    mavenLocal()
     maven(url = "https://dl.bintray.com/openrndr/openrndr")
 }
 
